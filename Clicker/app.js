@@ -116,6 +116,7 @@ var game = {
   },
   getSapling() {
     if (game.canGetSapling()) {
+      audio.play();
       data.seeds -= game.getSaplingCost();
       data.saplings++;
     }
@@ -123,6 +124,7 @@ var game = {
   },
   getTree() {
     if (game.canGetTree()) {
+      audio.play();
       data.seeds -= game.getTreeCost();
       data.trees++;
     }
@@ -130,6 +132,7 @@ var game = {
   },
   getWood() {
     if (game.canGetWood()) {
+      audio.play();
       data.seeds -= game.getWoodCost();
       data.woods++;
     }
@@ -137,11 +140,14 @@ var game = {
   },
   getForest() {
     if (game.canGetForest()) {
+      audio.play();
       data.seeds -= game.getForestCost();
       data.forests++;
     }
     game.updateDisplay();
   },
+
+
   //savegame
   save() {
     $.ajax({
