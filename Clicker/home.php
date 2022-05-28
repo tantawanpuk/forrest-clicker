@@ -11,51 +11,59 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Forest Clicker</title>
+          <link href="assets/logo.png" rel="icon">
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
           <link rel="stylesheet" type="text/css" href="home.css">
      </head>
 
      <body class="d-flex flex-column min-vh-100">
-          <nav class="navbar navbar-expand-lg bg-success color-custom navbar-dark sticky-top">
+          <!-- navbar -->
+          <nav class="navbar navbar-expand-md color-custom navbar-dark sticky-top">
                <div class="container-fluid text-black">
-                    <a href="change-password.php" class="nav-link text-white" aria-current="page">Change Password</a>
-                    <h1 class="logo">Forest Clicker&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-                    <a class="nav-link text-white" href="logout.php">Logout</a>
+                    <a class="navbar-brand logo" style="color: black;" href="#">Forest Clicker</a>
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggle"><span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                         <ul class="navbar-nav ms-auto px-3 align-items-center ">
+                              <li class="nav-item"><a href="change-password.php" class="nav-link text-white" aria-current="page">Change Password</a></li>
+                              <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>
+                    </div>
+                    </ul>
                </div>
           </nav>
+          <!-- container -->
           <div class="container">
                <div class="row text-center">
                     <div id="seedContainer" class="mt-2 head-font">
-                         <h3>Seeds: <span id="showSeed"></span></h3>
+                         <h1>Seeds: <span id="showSeed"></span></h1>
                          <div id="spsContainer">Seed per second: <span id="showSps"></span></div>
                     </div>
                </div>
                <div class="text-center">
-
-                    <img src="assets/seed.png" width="auto" height="200" class="rounded" onclick="game.getSeed()" alt="Seed">
+                    <img src="assets/seed.png" width="200" height="200" class="rounded pop" onclick="game.getSeed()" alt="Seed">
                </div>
-               <p class="text-center" style="color: green;">Click on this picture!</p>
+               <p class="text-center" style="color: green;">Click on this Seed!</p>
                <div class="row text-center">
-                    <div class="col-lg-3 mb-4">
-                         <img src="assets/sapling.png" id="BuyPicSapling" width="auto" height="100" class="rounded mb-1" onclick="game.getSapling()" alt="Sapling">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                         <img src="assets/sapling.png" id="BuyPicSapling" width="auto" height="100" class="rounded pop mb-1" onclick="game.getSapling()" alt="Sapling">
                          <div id="saplingContainer" class="mb-1" style="color: green;">Saplings: <span id="saplingCount"></span></div>
                          <button class="btn btn-success btn-sm" id="BuySapling">Buy Sapling (<span id="saplingCost"></span> Seeds)</button>
                     </div>
 
-                    <div class="col-lg-3 mb-4">
-                         <img src="assets/tree.png" id="BuyPicTree" width="auto" height="100" class="rounded mb-1" onclick="game.getTree()" alt="Tree">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                         <img src="assets/tree.png" id="BuyPicTree" width="auto" height="100" class="rounded pop mb-1" onclick="game.getTree()" alt="Tree">
                          <div id="treeContainer" class="mb-1" style="color: green;">Trees: <span id="treeCount"></span></div>
                          <button class="btn btn-success btn-sm" id="BuyTree">Buy Tree (<span id="treeCost"></span> Seeds)</button>
                     </div>
 
-                    <div class="col-lg-3 mb-4">
-                         <img src="assets/wood.png" id="BuyPicWood" width="auto" height="100" class="rounded mb-1" onclick="game.getWood()" alt="Wood">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                         <img src="assets/wood.png" id="BuyPicWood" width="auto" height="100" class="rounded pop mb-1" onclick="game.getWood()" alt="Wood">
                          <div id="woodContainer" class="mb-1" style="color: green;">Woods: <span id="woodCount"></span></div>
                          <button class="btn btn-success btn-sm" id="BuyWood">Buy Wood (<span id="woodCost"></span> Seeds)</button>
                     </div>
-                    <div class="col-lg-3 mb-4">
-                         <img src="assets/forest.png" id="BuyPicForest" width="auto" height="100" class="rounded mb-1" onclick="game.getForest()" alt="Forest">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                         <img src="assets/forest.png" id="BuyPicForest" width="auto" height="100" class="rounded pop mb-1" onclick="game.getForest()" alt="Forest">
                          <div id="forestContainer" class="mb-1" style="color: green;">Forests: <span id="forestCount"></span></div>
                          <button class="btn btn-success btn-sm" id="BuyForest">Buy Forest (<span id="forestCost"></span> Seeds)</button>
 

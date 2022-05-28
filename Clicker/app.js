@@ -5,6 +5,7 @@ var data = {
   woods: 0,
   forests: 0,
 };
+var audio = new Audio("assets/pops.mp3");
 
 var game = {
   init() {
@@ -86,6 +87,7 @@ var game = {
   },
   getSeed() {
     data.seeds++;
+    audio.play();
     game.updateDisplay();
   },
   getSaplingCost() {
@@ -140,8 +142,8 @@ var game = {
     }
     game.updateDisplay();
   },
+  //savegame
   save() {
-    console.log(data.seeds);
     $.ajax({
       url: "savegame.php",
       method: "post",
@@ -169,16 +171,19 @@ var game = {
     game.updateDisplay();
   },
   clearSave() {
-    var reset = { seeds: 0, saplings: 0, trees: 0, woods: 0, forests: 0 };
-    $.ajax({
-      url: "savegame.php",
-      method: "post",
-      data: { data: JSON.stringify(reset) },
-      success: function (res) {
-        console.log(res);
-      },
-    });
-    location.reload();
+    var result = confirm("Want to reset the Game?");
+    if (result) {
+      var reset = { seeds: 0, saplings: 0, trees: 0, woods: 0, forests: 0 };
+      $.ajax({
+        url: "savegame.php",
+        method: "post",
+        data: { data: JSON.stringify(reset) },
+        success: function (res) {
+          console.log(res);
+        },
+      });
+      location.reload();
+    }
   },
   start() {
     setInterval(() => game.tick(), 1e3);

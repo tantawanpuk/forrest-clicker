@@ -21,7 +21,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])){
         	          SET progress='$progress',seeds='$seeds'
         	          WHERE id='$id'";
         	mysqli_query($conn, $sql_2);
-                print_r($progress);
+                // print_r($progress);
 	        exit();
 
         }
